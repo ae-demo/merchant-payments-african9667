@@ -1,0 +1,17 @@
+{
+  "name": "merchant-webapp",
+  "type": "web-application",
+  "version": "0.1.0",
+  "language": "TypeScript",
+  "buildpack": "docker",
+  "appPath": "merchant-webapp",
+  "entrypoint": "deployment/web-application",
+  "exposure": "internet",
+  "dependencies": [
+    { "kind": "component", "name": "payments-api" },
+    { "kind": "platform-resource", "name": "thunder-auth", "resourceType": "thunder-app" }
+  ],
+  "description": "The merchant-facing SPA: sign up and onboarding form, dashboard with balance and recent transactions, payment link creation and sharing, transaction history, and payout requests/history. Does not process payments itself — everything goes through payments-api.",
+  "stories": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+  "skillsPinned": ["wireframes", "react-webapp", "oxygen-ui-design-system", "thunder-authentication"]
+}

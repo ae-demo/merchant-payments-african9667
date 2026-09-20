@@ -1,0 +1,17 @@
+{
+  "name": "admin-webapp",
+  "type": "web-application",
+  "version": "0.1.0",
+  "language": "TypeScript",
+  "buildpack": "docker",
+  "appPath": "admin-webapp",
+  "entrypoint": "deployment/web-application",
+  "exposure": "intranet",
+  "dependencies": [
+    { "kind": "component", "name": "payments-api" },
+    { "kind": "platform-resource", "name": "thunder-auth", "resourceType": "thunder-app" }
+  ],
+  "description": "The internal console for Platform Admin staff: merchant onboarding review queue, all-merchant and all-transaction views, dispute queue and resolution, and merchant suspend/reactivate controls. Intranet-only — not reachable from the public internet.",
+  "stories": [15, 16, 17, 18, 19],
+  "skillsPinned": ["wireframes", "react-webapp", "oxygen-ui-design-system", "thunder-authentication"]
+}

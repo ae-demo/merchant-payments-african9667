@@ -1,0 +1,73 @@
+{
+  "version": 3,
+  "permissions": [
+    {
+      "resource": "merchants",
+      "component": "payments-api",
+      "description": "Merchant business profiles and their onboarding lifecycle",
+      "actions": [
+        { "handle": "read", "description": "The caller's own merchant profile" },
+        { "handle": "update", "description": "Update the caller's own business and bank details" },
+        { "handle": "read-all", "description": "Every merchant" },
+        { "handle": "review", "description": "Approve or reject a merchant's onboarding submission" },
+        { "handle": "suspend", "description": "Suspend or reactivate a merchant" }
+      ]
+    },
+    {
+      "resource": "payment-links",
+      "component": "payments-api",
+      "description": "Payment links/invoices a merchant creates to request payment",
+      "actions": [
+        { "handle": "create", "description": "Create a payment link" },
+        { "handle": "read", "description": "The caller's own payment links" }
+      ]
+    },
+    {
+      "resource": "transactions",
+      "component": "payments-api",
+      "description": "Payment attempts made against payment links",
+      "actions": [
+        { "handle": "read", "description": "The caller's own transactions" },
+        { "handle": "read-all", "description": "Every transaction" }
+      ]
+    },
+    {
+      "resource": "payouts",
+      "component": "payments-api",
+      "description": "Settlements of collected funds to a merchant's bank account",
+      "actions": [
+        { "handle": "read", "description": "The caller's own payouts" },
+        { "handle": "request", "description": "Request an on-demand payout" }
+      ]
+    },
+    {
+      "resource": "disputes",
+      "component": "payments-api",
+      "description": "Chargebacks raised against transactions",
+      "actions": [
+        { "handle": "read-all", "description": "Every dispute" },
+        { "handle": "resolve", "description": "Resolve a dispute in favor of the merchant or the customer" }
+      ]
+    }
+  ],
+  "groups": [],
+  "roles": [
+    {
+      "name": "Merchant",
+      "description": "A registered business that creates payment links, tracks its transactions and balance, and manages payouts.",
+      "stories": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      "grants": ["merchants:read", "merchants:update", "payment-links:create", "payment-links:read", "transactions:read", "payouts:read", "payouts:request"],
+      "enrolment": "self-service"
+    },
+    {
+      "name": "PlatformAdmin",
+      "description": "Internal staff who review merchant onboarding, monitor transactions, and resolve disputes.",
+      "stories": [15, 16, 17, 18, 19],
+      "grants": ["merchants:read-all", "merchants:review", "merchants:suspend", "transactions:read-all", "disputes:read-all", "disputes:resolve"],
+      "assignTo": ["PlatformAdmins"]
+    }
+  ],
+  "testUsers": [
+    { "username": "test-platformadmin", "roles": ["PlatformAdmin"] }
+  ]
+}
