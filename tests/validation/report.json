@@ -1,0 +1,611 @@
+{
+  "schemaVersion": 1,
+  "issue": 9,
+  "commit": "0a5c99edad5c6cdf19d84c205883a9524278cb77",
+  "generatedAt": "2026-09-20T08:27:15.690Z",
+  "playwrightVersion": "1.61.1",
+  "batches": [
+    {
+      "file": "2026-09-20T07-56-24-836Z.json",
+      "specs": 2
+    },
+    {
+      "file": "2026-09-20T07-57-05-539Z.json",
+      "specs": 1
+    },
+    {
+      "file": "2026-09-20T07-57-16-377Z.json",
+      "specs": 2
+    },
+    {
+      "file": "2026-09-20T07-57-31-745Z.json",
+      "specs": 1
+    },
+    {
+      "file": "2026-09-20T07-58-11-585Z.json",
+      "specs": 1
+    },
+    {
+      "file": "2026-09-20T07-58-34-307Z.json",
+      "specs": 1
+    },
+    {
+      "file": "2026-09-20T07-58-57-106Z.json",
+      "specs": 4
+    },
+    {
+      "file": "2026-09-20T08-00-45-897Z.json",
+      "specs": 4
+    },
+    {
+      "file": "2026-09-20T08-02-36-747Z.json",
+      "specs": 1
+    },
+    {
+      "file": "2026-09-20T08-03-08-601Z.json",
+      "specs": 1
+    },
+    {
+      "file": "2026-09-20T08-03-53-170Z.json",
+      "specs": 5
+    },
+    {
+      "file": "2026-09-20T08-06-19-833Z.json",
+      "specs": 5
+    },
+    {
+      "file": "2026-09-20T08-08-44-452Z.json",
+      "specs": 4
+    },
+    {
+      "file": "2026-09-20T08-10-24-010Z.json",
+      "specs": 5
+    },
+    {
+      "file": "2026-09-20T08-12-21-243Z.json",
+      "specs": 3
+    },
+    {
+      "file": "2026-09-20T08-13-45-771Z.json",
+      "specs": 1
+    },
+    {
+      "file": "2026-09-20T08-14-13-283Z.json",
+      "specs": 1
+    },
+    {
+      "file": "2026-09-20T08-15-03-263Z.json",
+      "specs": 30
+    }
+  ],
+  "totals": {
+    "e2e": {
+      "total": 30,
+      "pass": 2,
+      "fail": 28,
+      "notRun": 0
+    },
+    "manual": 1,
+    "scenario": 0
+  },
+  "criteria": [
+    {
+      "id": "AC-001-a",
+      "requirementId": "REQ-001",
+      "must": "A new user can create a merchant account",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-001-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 15388,
+      "failure": {
+        "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByText(/Approved|Pending|Rejected|Suspended/)\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 10000ms\n  - waiting for getByText(/Approved|Pending|Rejected|Suspended/)\n",
+        "location": "AC-001-a.spec.ts:6"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-002-a",
+      "requirementId": "REQ-002",
+      "must": "A merchant can sign in via single sign-on and reach their account",
+      "method": "e2e",
+      "status": "pass",
+      "spec": "tests/e2e/specs/AC-002-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 4728,
+      "failure": null,
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-002-b",
+      "requirementId": "REQ-002",
+      "must": "A Platform Admin can sign in via single sign-on and reach the admin console",
+      "method": "e2e",
+      "status": "pass",
+      "spec": "tests/e2e/specs/AC-002-b.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 4555,
+      "failure": null,
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-003-a",
+      "requirementId": "REQ-003",
+      "must": "A merchant can submit business details and a bank account",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-003-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 20474,
+      "failure": {
+        "message": "Error: upstream request timeout\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 504",
+        "location": "AC-003-a.spec.ts:7"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-003-b",
+      "requirementId": "REQ-003",
+      "must": "A merchant cannot accept live payments until their submission is approved",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-003-b.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 20238,
+      "failure": {
+        "message": "Error: GET /me/merchant returned 504 (expected 200 or 404): upstream request timeout",
+        "location": "AC-003-b.spec.ts:7"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-004-a",
+      "requirementId": "REQ-004",
+      "must": "A merchant can create a payment link specifying an amount and a description",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-004-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 26135,
+      "failure": {
+        "message": "Error: GET /me/merchant returned 504 (expected 200 or 404): upstream request timeout",
+        "location": "AC-004-a.spec.ts:7"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-005-a",
+      "requirementId": "REQ-005",
+      "must": "A created payment link is available as a shareable link a customer can open",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-005-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 25481,
+      "failure": {
+        "message": "Error: GET /me/merchant returned 504 (expected 200 or 404): upstream request timeout",
+        "location": "AC-005-a.spec.ts:7"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-006-a",
+      "requirementId": "REQ-006",
+      "must": "A merchant can view a list of their payment links and each one's status",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-006-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 26311,
+      "failure": {
+        "message": "Error: GET /me/merchant returned 504 (expected 200 or 404): upstream request timeout",
+        "location": "AC-006-a.spec.ts:7"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-006-b",
+      "requirementId": "REQ-006",
+      "must": "A merchant can view a history of their transactions",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-006-b.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 25787,
+      "failure": {
+        "message": "Error: GET /me/merchant returned 504 (expected 200 or 404): upstream request timeout",
+        "location": "AC-006-b.spec.ts:7"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-007-a",
+      "requirementId": "REQ-007",
+      "must": "A merchant can view their current available balance",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-007-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 27149,
+      "failure": {
+        "message": "Error: GET /me/merchant returned 504 (expected 200 or 404): upstream request timeout",
+        "location": "AC-007-a.spec.ts:7"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-008-a",
+      "requirementId": "REQ-008",
+      "must": "A merchant receives a notification when a customer's payment completes",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-008-a.spec.ts",
+      "healed": true,
+      "healAttempts": 1,
+      "flaky": false,
+      "durationMs": 26846,
+      "failure": {
+        "message": "Error: GET /me/merchant returned 504 (expected 200 or 404): upstream request timeout",
+        "location": "AC-008-a.spec.ts:20"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-009-a",
+      "requirementId": "REQ-009",
+      "must": "A merchant can request a payout of their available balance",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-009-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 25453,
+      "failure": {
+        "message": "Error: GET /me/merchant returned 504 (expected 200 or 404): upstream request timeout",
+        "location": "AC-009-a.spec.ts:14"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-009-b",
+      "requirementId": "REQ-009",
+      "must": "A requested payout appears in the merchant's payout history with a status",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-009-b.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 25690,
+      "failure": {
+        "message": "Error: GET /me/merchant returned 504 (expected 200 or 404): upstream request timeout",
+        "location": "AC-009-b.spec.ts:14"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-010-a",
+      "requirementId": "REQ-010",
+      "must": "The system runs an automatic payout on a daily schedule without a merchant request",
+      "method": "manual",
+      "status": "manual",
+      "spec": null,
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 0,
+      "failure": null,
+      "batch": null
+    },
+    {
+      "id": "AC-011-a",
+      "requirementId": "REQ-011",
+      "must": "Opening a payment link shows the amount owed and the merchant's name",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-011-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 27707,
+      "failure": {
+        "message": "Error: GET /me/merchant returned 504 (expected 200 or 404): upstream request timeout",
+        "location": "AC-011-a.spec.ts:7"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-012-a",
+      "requirementId": "REQ-012",
+      "must": "A customer can complete payment of a payment link using mobile money",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-012-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 26380,
+      "failure": {
+        "message": "Error: GET /me/merchant returned 504 (expected 200 or 404): upstream request timeout",
+        "location": "AC-012-a.spec.ts:7"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-013-a",
+      "requirementId": "REQ-013",
+      "must": "A customer can complete payment of a payment link using a card",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-013-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 25421,
+      "failure": {
+        "message": "Error: GET /me/merchant returned 504 (expected 200 or 404): upstream request timeout",
+        "location": "AC-013-a.spec.ts:7"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-014-a",
+      "requirementId": "REQ-014",
+      "must": "A customer receives a receipt after a successful payment",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-014-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 25629,
+      "failure": {
+        "message": "Error: GET /me/merchant returned 504 (expected 200 or 404): upstream request timeout",
+        "location": "AC-014-a.spec.ts:7"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-015-a",
+      "requirementId": "REQ-015",
+      "must": "A Platform Admin can view a list of pending merchant onboarding submissions",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-015-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 20314,
+      "failure": {
+        "message": "Error: GET /me/merchant returned 504 (expected 200 or 404): upstream request timeout",
+        "location": "AC-015-a.spec.ts:7"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-015-b",
+      "requirementId": "REQ-015",
+      "must": "A Platform Admin can approve a pending merchant submission",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-015-b.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 30170,
+      "failure": {
+        "message": "Test timeout of 30000ms exceeded.",
+        "location": "AC-015-b.spec.ts:7"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-015-c",
+      "requirementId": "REQ-015",
+      "must": "A Platform Admin can reject a pending merchant submission",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-015-c.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 30143,
+      "failure": {
+        "message": "Test timeout of 30000ms exceeded.",
+        "location": "AC-015-c.spec.ts:13"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-016-a",
+      "requirementId": "REQ-016",
+      "must": "A Platform Admin can view transactions belonging to any merchant, not just one",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-016-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 26261,
+      "failure": {
+        "message": "Error: GET /me/merchant returned 504 (expected 200 or 404): upstream request timeout",
+        "location": "AC-016-a.spec.ts:15"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-017-a",
+      "requirementId": "REQ-017",
+      "must": "A Platform Admin can view a list of disputed transactions",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-017-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 11107,
+      "failure": {
+        "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('row').nth(1)\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 5000ms\n  - waiting for getByRole('row').nth(1)\n",
+        "location": "AC-017-a.spec.ts:13"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-017-b",
+      "requirementId": "REQ-017",
+      "must": "A Platform Admin can resolve a dispute in favor of the merchant",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-017-b.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 20146,
+      "failure": {
+        "message": "Error: upstream request timeout\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 504",
+        "location": "AC-017-b.spec.ts:12"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-017-c",
+      "requirementId": "REQ-017",
+      "must": "A Platform Admin can resolve a dispute in favor of the customer",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-017-c.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 20237,
+      "failure": {
+        "message": "Error: upstream request timeout\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 504",
+        "location": "AC-017-c.spec.ts:11"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-018-a",
+      "requirementId": "REQ-018",
+      "must": "A Platform Admin can suspend an approved merchant's account",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-018-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 26279,
+      "failure": {
+        "message": "Error: GET /me/merchant returned 504 (expected 200 or 404): upstream request timeout",
+        "location": "AC-018-a.spec.ts:7"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-018-b",
+      "requirementId": "REQ-018",
+      "must": "A Platform Admin can reactivate a suspended merchant's account",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-018-b.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 26280,
+      "failure": {
+        "message": "Error: GET /me/merchant returned 504 (expected 200 or 404): upstream request timeout",
+        "location": "AC-018-b.spec.ts:7"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-019-a",
+      "requirementId": "REQ-019",
+      "must": "A customer can complete a payment without signing in or creating an account",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-019-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 26188,
+      "failure": {
+        "message": "Error: GET /me/merchant returned 504 (expected 200 or 404): upstream request timeout",
+        "location": "AC-019-a.spec.ts:7"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-020-a",
+      "requirementId": "REQ-020",
+      "must": "A merchant can register under Nigeria, Kenya, or Ghana with the matching currency",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-020-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 20045,
+      "failure": {
+        "message": "Error: upstream request timeout\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 504",
+        "location": "AC-020-a.spec.ts:15"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-021-a",
+      "requirementId": "REQ-021",
+      "must": "Raising a dispute on a transaction reduces the merchant's available balance by the disputed amount",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-021-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 20349,
+      "failure": {
+        "message": "Error: upstream request timeout\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 504",
+        "location": "AC-021-a.spec.ts:14"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    },
+    {
+      "id": "AC-021-b",
+      "requirementId": "REQ-021",
+      "must": "Resolving a dispute in the merchant's favor reverses the earlier debit",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-021-b.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 20434,
+      "failure": {
+        "message": "Error: upstream request timeout\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 504",
+        "location": "AC-021-b.spec.ts:10"
+      },
+      "batch": "2026-09-20T08-15-03-263Z.json"
+    }
+  ]
+}
