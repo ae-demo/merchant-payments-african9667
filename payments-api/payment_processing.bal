@@ -30,7 +30,8 @@ function chargeCustomer(string merchantId, decimal amount, string currency, stri
         channel: channel,
         reference: uuid:createRandomUuid()
     };
-    internal_payments:Payment payment = check paymentGatewayClient->/payments.post(request);
+    internal_payments:Client gatewayClient = check getPaymentGatewayClient();
+    internal_payments:Payment payment = check gatewayClient->/payments.post(request);
     string status = mapPaymentStatus(payment.status);
     return {status: status, providerReference: payment.paymentId};
 }
@@ -55,7 +56,8 @@ function requestPayoutFromGateway(string merchantId, decimal amount, string curr
         bankAccount: {accountNumber: bankAccount.accountNumber, bankCode: bankAccount.bankName},
         reference: uuid:createRandomUuid()
     };
-    internal_payments:Payout payout = check paymentGatewayClient->/payouts.post(request);
+    internal_payments:Client gatewayClient = check getPaymentGatewayClient();
+    internal_payments:Payout payout = check gatewayClient->/payouts.post(request);
     string status = mapPayoutStatus(payout.status);
     return {status: status, providerReference: payout.payoutId};
 }
