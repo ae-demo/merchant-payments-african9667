@@ -7,6 +7,11 @@ import payments_api.email_service;
 import payments_api.sms_service;
 
 function sendSms(string toNumber, string body) {
+    sms_service:Client|error smsClient = getSmsClient();
+    if smsClient is error {
+        log:printWarn("sms-service client unavailable", to = toNumber, 'error = smsClient);
+        return;
+    }
     sms_service:SendSmsRequest request = {to: toNumber, body: body};
     sms_service:SmsMessage|error result = smsClient->/sms.post(request);
     if result is error {
@@ -15,6 +20,11 @@ function sendSms(string toNumber, string body) {
 }
 
 function sendEmail(string toAddress, string subject, string body) {
+    email_service:Client|error emailClient = getEmailClient();
+    if emailClient is error {
+        log:printWarn("email-service client unavailable", to = toAddress, 'error = emailClient);
+        return;
+    }
     email_service:SendEmailRequest request = {to: toAddress, subject: subject, body: body};
     email_service:EmailMessage|error result = emailClient->/emails.post(request);
     if result is error {
