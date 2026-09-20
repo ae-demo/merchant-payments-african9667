@@ -46,6 +46,7 @@ A merchant payments platform where a merchant creates a payment link or invoice 
 - Merchant onboarding requires basic business verification (business name, registration number, and bank account details), reviewed and approved manually by a Platform Admin, before the merchant can accept live payments.
 - The platform supports local African currencies, with each merchant operating in a single home currency.
 - The platform launches with Nigeria (NGN), Kenya (KES), and Ghana (GHS), each merchant registering under one of these three countries and its currency.
+- When a card payment is disputed or charged back, the disputed amount is debited from the merchant's balance immediately (or held back from payout if not yet settled), and reversed if the merchant later wins the dispute.
 
 ## Out of Scope
 
@@ -56,7 +57,7 @@ A merchant payments platform where a merchant creates a payment link or invoice 
 
 ## Open Questions
 
-1. How should card-network chargebacks/disputes be handled financially (who bears the loss while a dispute is investigated)?
+None.
 
 ## Further Notes
 
