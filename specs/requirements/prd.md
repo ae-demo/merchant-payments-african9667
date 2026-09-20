@@ -44,7 +44,8 @@ A merchant payments platform where a merchant creates a payment link or invoice 
 - Payment confirmations and receipts are sent by SMS and email using the organization's registered SMS and email services (sms-service, email-service).
 - Payouts run automatically on a daily schedule, and a merchant can additionally request an on-demand payout. *assumed*
 - Merchant onboarding requires basic business verification (business name, registration number, and bank account details) before the merchant can accept live payments. *assumed*
-- The platform supports local African currencies, with each merchant operating in a single home currency. *assumed*
+- The platform supports local African currencies, with each merchant operating in a single home currency.
+- The platform launches with Nigeria (NGN), Kenya (KES), and Ghana (GHS), each merchant registering under one of these three countries and its currency.
 
 ## Out of Scope
 
@@ -55,9 +56,8 @@ A merchant payments platform where a merchant creates a payment link or invoice 
 
 ## Open Questions
 
-1. Which African countries and currencies should the platform launch with first?
-2. How should card-network chargebacks/disputes be handled financially (who bears the loss while a dispute is investigated)?
-3. Should merchant business verification be a manual admin review, an automated check, or both?
+1. How should card-network chargebacks/disputes be handled financially (who bears the loss while a dispute is investigated)?
+2. Should merchant business verification be a manual admin review, an automated check, or both?
 
 ## Further Notes
 
