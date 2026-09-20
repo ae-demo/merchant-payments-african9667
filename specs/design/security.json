@@ -50,14 +50,16 @@
       ]
     }
   ],
-  "groups": [],
+  "groups": [
+    { "name": "Merchants", "description": "Registered businesses that collect payments through the platform" }
+  ],
   "roles": [
     {
       "name": "Merchant",
       "description": "A registered business that creates payment links, tracks its transactions and balance, and manages payouts.",
       "stories": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
       "grants": ["merchants:read", "merchants:update", "payment-links:create", "payment-links:read", "transactions:read", "payouts:read", "payouts:request"],
-      "enrolment": "self-service"
+      "assignTo": ["Merchants"]
     },
     {
       "name": "PlatformAdmin",
@@ -68,6 +70,7 @@
     }
   ],
   "testUsers": [
+    { "username": "test-merchant", "roles": ["Merchant"] },
     { "username": "test-platformadmin", "roles": ["PlatformAdmin"] }
   ]
 }
