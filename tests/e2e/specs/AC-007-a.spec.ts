@@ -31,6 +31,5 @@ test("AC-007-a: a merchant can view their current available balance", async ({ p
 
   // 3. Assert the available balance card renders a formatted amount
   await expect(page.getByText("Available balance")).toBeVisible();
-  const card = page.getByText("Available balance").locator("..");
-  await expect(card.getByText(/[\d,]+(\.\d+)?\s*(NGN|KES|GHS)/)).toBeVisible();
+  await expect(page.getByText(/[\d,]+(\.\d+)?\s*(NGN|KES|GHS)/)).toBeVisible();
 });

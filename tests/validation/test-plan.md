@@ -33,6 +33,11 @@ suite, so it is recorded once here instead of once per criterion:
   - Transitively: onboarding review/suspend, payment links, transactions,
     payouts, and everything gated on "an approved merchant exists" cannot be
     exercised in this deployment.
+  - Observed live as either a fast `500` or a `504 upstream request timeout`
+    on the same endpoints across repeated runs — consistent with the same
+    crash under load (the gateway's upstream timing out while payments-api
+    is busy throwing/logging the mapping error) rather than two separate
+    defects.
   - **DEFECT-1b (secondary, UI).** Both admin-webapp and merchant-webapp
     swallow a failed list fetch into an empty array (`data?.data ?? []`)
     rather than surfacing an error, so the admin console shows "No pending
@@ -60,6 +65,19 @@ Each such spec still performs the real flow (via `lib/fixtures.ts`), so it
 becomes a genuine regression test the moment the defect is fixed, and it
 fails with a message that traces back to DEFECT-1 rather than a vague
 timeout.
+
+**Environment constraint, independent of DEFECT-1:** only one Merchant-role
+test identity (`test-merchant`) is provisioned (this milestone's roles gate
+ticket, #3) — merchant-webapp has no self-registration, so there is no way
+for this suite to create a second one. `owner_user_id` is also UNIQUE per
+merchant profile, so `test-merchant` can hold exactly one profile for the
+life of this environment. This means: AC-015-c (reject) and AC-018-a/b
+(suspend/reactivate) exercise the same shared profile AC-001-a/015-b do
+rather than independent fixtures, and AC-016-a ("any merchant, not just
+one") can only be fully demonstrated with a second merchant identity that
+does not exist in this environment — its spec verifies the admin
+all-transactions view surfaces `test-merchant`'s own transaction and notes
+the multi-merchant gap rather than fabricating a second identity.
 
 ## AC-001-a — A new user can create a merchant account
 
