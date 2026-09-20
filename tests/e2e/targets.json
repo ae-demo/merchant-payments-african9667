@@ -1,0 +1,9 @@
+{
+  "targets": {
+    "admin-webapp": "https://http-merchant-paym-development-default-3c347157.apps.94.72.97.95.sslip.io:443/",
+    "checkout-webapp": "https://http-merchant-paym-development-default-008d7793.apps.94.72.97.95.sslip.io:443/",
+    "merchant-webapp": "https://http-merchant-paym-development-default-43fce1c0.apps.94.72.97.95.sslip.io:443/",
+    "payments-api": "https://development-default.apps.94.72.97.95.sslip.io:443/merchant-payments-african9667-payments-api-http"
+  },
+  "primary": "merchant-webapp"
+}
