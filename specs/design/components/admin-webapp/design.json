@@ -7,11 +7,49 @@
   "appPath": "admin-webapp",
   "entrypoint": "deployment/web-application",
   "exposure": "intranet",
-  "dependencies": [
-    { "kind": "component", "name": "payments-api" },
-    { "kind": "platform-resource", "name": "thunder-auth", "resourceType": "thunder-app" }
+  "stories": [
+    15,
+    16,
+    17,
+    18,
+    19
   ],
   "description": "The internal console for Platform Admin staff: merchant onboarding review queue, all-merchant and all-transaction views, dispute queue and resolution, and merchant suspend/reactivate controls. Intranet-only — not reachable from the public internet.",
-  "stories": [15, 16, 17, 18, 19],
-  "skillsPinned": ["wireframes", "react-webapp", "oxygen-ui-design-system", "thunder-authentication"]
+  "dependencies": [
+    {
+      "kind": "component",
+      "name": "payments-api",
+      "wiring": {
+        "endpoint": {
+          "component": "merchant-payments-african9667-payments-api",
+          "name": "http",
+          "visibility": "project",
+          "envBindings": {
+            "address": "PAYMENTS_API_URL"
+          }
+        }
+      }
+    },
+    {
+      "kind": "platform-resource",
+      "name": "thunder-auth",
+      "resourceType": "thunder-app",
+      "wiring": {
+        "ref": "merchant-payments-f720cb2a",
+        "envBindings": {
+          "client_id": "THUNDER_AUTH_CLIENT_ID",
+          "issuer": "THUNDER_AUTH_ISSUER",
+          "jwks_url": "THUNDER_AUTH_JWKS_URL",
+          "resource": "THUNDER_AUTH_RESOURCE",
+          "scopes": "THUNDER_AUTH_SCOPES"
+        }
+      }
+    }
+  ],
+  "skillsPinned": [
+    "wireframes",
+    "react-webapp",
+    "oxygen-ui-design-system",
+    "thunder-authentication"
+  ]
 }

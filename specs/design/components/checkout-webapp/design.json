@@ -7,10 +7,32 @@
   "appPath": "checkout-webapp",
   "entrypoint": "deployment/web-application",
   "exposure": "internet",
-  "dependencies": [
-    { "kind": "component", "name": "payments-api" }
+  "stories": [
+    11,
+    12,
+    13,
+    14
   ],
   "description": "The public hosted checkout page a customer lands on from a shared payment link: shows the amount and merchant, collects mobile money or card details, and shows the payment outcome/receipt. No sign-in — customers never create an account.",
-  "stories": [11, 12, 13, 14],
-  "skillsPinned": ["wireframes", "react-webapp", "oxygen-ui-design-system"]
+  "dependencies": [
+    {
+      "kind": "component",
+      "name": "payments-api",
+      "wiring": {
+        "endpoint": {
+          "component": "merchant-payments-african9667-payments-api",
+          "name": "http",
+          "visibility": "project",
+          "envBindings": {
+            "address": "PAYMENTS_API_URL"
+          }
+        }
+      }
+    }
+  ],
+  "skillsPinned": [
+    "wireframes",
+    "react-webapp",
+    "oxygen-ui-design-system"
+  ]
 }
