@@ -68,3 +68,31 @@ export async function ensureApprovedMerchant(
   }
   return reviewed.json();
 }
+
+/** Creates a payment link for the (already approved) caller. Throws on failure. */
+export async function createPaymentLink(
+  request: APIRequestContext,
+  merchantToken: string,
+  input: { amount: number; currency: string; description: string },
+): Promise<{ id: string; status: string } & Record<string, unknown>> {
+  const res = await request.post(`${api()}/me/payment-links`, { headers: authHeaders(merchantToken), data: input });
+  if (res.status() !== 201) {
+    throw new Error(`POST /me/payment-links returned ${res.status()}: ${await res.text()}`);
+  }
+  return res.json();
+}
+
+/** Pays an open payment link as an unauthenticated customer. Throws on failure. */
+export async function payPaymentLink(
+  request: APIRequestContext,
+  linkId: string,
+  method: "mobile_money" | "card",
+): Promise<{ id: string; status: string } & Record<string, unknown>> {
+  const body =
+    method === "mobile_money" ? { method, phoneNumber: "+2348012345678" } : { method, cardToken: "4111111111111111|12/30|123" };
+  const res = await request.post(`${api()}/payment-links/${linkId}/pay`, { data: body });
+  if (res.status() !== 202) {
+    throw new Error(`POST /payment-links/${linkId}/pay returned ${res.status()}: ${await res.text()}`);
+  }
+  return res.json();
+}
